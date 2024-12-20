@@ -44,9 +44,7 @@
                     :content (->> messages-as-strings
                                (map (fn [m] {:text m}))
                                (into []))}]
-      (if (:cache (meta messages-as-strings))
-        (update-in messages [:content (dec (count messages-as-strings))] assoc :cache_control {:type :ephemeral})
-        messages))))
+        messages)))
 
 
 (defn send
